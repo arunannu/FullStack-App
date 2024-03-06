@@ -1,11 +1,22 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
+import { teamDetails } from './teamDetails';
 
 const About = () => {
   return (
     <div>
-      <h3>This is frist project using with nextjs...</h3>
+      <h1>All Developers</h1>
+      <ul>
+        {teamDetails.map(member => (
+          <li key={member.id}>
+            <Link href={`/About/${member.id}`}> 
+              {member.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
